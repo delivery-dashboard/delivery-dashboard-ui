@@ -1,14 +1,37 @@
-<div class="container">
+<div class="container" ng-controller="MainCtrl">
 
   <div class="jumbotron text-center">
     <h1>Delivery Dashboard</h1>
   </div>
 
-  <div class="row" ng-controller="MainCtrl">
+      <div class="row">
     {{periods}}
+    <button type="button" class="btn btn-default" ng-model="selectedPeriod" bs-options="period.id as period.id for period in periods" bs-select>
+    Período <span class="caret"></span>
+    </button>
   </div>
 
-  <hr>
+<hr />
+
+  <div class="row" ng-show="selectedPeriod">
+
+    PERIODO {{selectedPeriod}}
+
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <td>Projeto</td>
+      <td ng-repeat=""> </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="project in projects">
+      <td>{{project.name}}</td>
+      <td ng-repeat=""
+    </tr>
+    </tbody>
+  </table>
+</div>
 
   <div class="footer">
     <p>@ Thoughtworks</p>
