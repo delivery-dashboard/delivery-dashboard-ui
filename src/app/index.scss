@@ -13,6 +13,47 @@
   }
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.jumbotron {
+  h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    font-size: 4em;
+    small {
+      text-transform: lowercase;
+    }
+  }
+}
+
+.situation-good,
+.situation-warning,
+.situation-danger,
+.situation-yes,
+.situation-no {
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  text-transform: capitalize;
+}
+
+.situation-good,
+.situation-yes {
+  background: #5cb85c;
+}
+
+.situation-danger,
+.situation-no {
+  background: #d9534f;
+}
+
+.situation-warning {
+  background: #f0ad4e;
+}
+
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
    all your sass files automatically */
 // injector
