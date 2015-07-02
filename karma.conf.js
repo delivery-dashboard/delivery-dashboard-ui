@@ -30,7 +30,10 @@ module.exports = function(config) {
       'src/**/*.html': ['ng-html2js']
     },
 
-    files: ['bower_components/pact-consumer-js-dsl/dist/web/pact-consumer-js-dsl.js']
+    files: [
+      'bower_components/pact-consumer-js-dsl/dist/web/pact-consumer-js-dsl.js',
+      'bower_components/restful.js/dist/web/restful.min.js'
+    ]
   };
 
   // This block is needed to execute Chrome on Travis
