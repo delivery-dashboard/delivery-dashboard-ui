@@ -12,9 +12,15 @@ module.exports = function(config) {
       moduleName: 'gulpAngular'
     },
 
-    browsers : ['PhantomJS'],
+    browsers: ['PhantomJS_without_security'],
+    customLaunchers: {
+      PhantomJS_without_security: {
+        base: 'PhantomJS',
+        flags: ['--web-security=false']
+      }
+    },
 
-    plugins : [
+    plugins: [
       'karma-phantomjs-launcher',
       'karma-jasmine',
       'karma-ng-html2js-preprocessor'
@@ -22,7 +28,9 @@ module.exports = function(config) {
 
     preprocessors: {
       'src/**/*.html': ['ng-html2js']
-    }
+    },
+
+    files: ['bower_components/pact-consumer-js-dsl/dist/web/pact-consumer-js-dsl.js']
   };
 
   // This block is needed to execute Chrome on Travis
