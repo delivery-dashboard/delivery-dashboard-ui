@@ -5,7 +5,6 @@ describe("Client", function() {
 
   resource = restful('localhost').protocol('http').port(1234);
 
-  beforeEach(angular.mock.module('restangular'));
   beforeEach(function() {
     projectsProvider = Pact.mockService({
       consumer: 'Projects Consumer',
@@ -19,16 +18,16 @@ describe("Client", function() {
 
   it("return projects", function(done) {
     projectsProvider
-      .given("at least on project exists")
+      .given("at least one project exists")
       .uponReceiving("a request for listing all projects")
-      .withRequest("get", "/projects", {
+      .withRequest("get", "/api/projects", {
         "Accept": "application/json"
       }).willRespondWith(200, {
         "Content-Type": "application/json"
       }, [ { "name": "P1" }, { "name": "P2" } ]);
 
     projectsProvider.run(done, function(runComplete) {
-      resource.all('projects').header('Accept', 'application/json').getAll().then(function(projects) {
+      resource.all('api/projects').header('Accept', 'application/json').getAll().then(function(projects) {
         try {
           expect(projects().data.length).toEqual(2);
           expect(projects().data[0]['name']).toEqual('P1');
