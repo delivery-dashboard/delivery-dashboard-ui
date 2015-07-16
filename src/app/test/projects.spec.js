@@ -23,7 +23,7 @@ describe("Client", function() {
       .withRequest("get", "/api/projects", {
         "Accept": "application/json"
       }).willRespondWith(200, {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json; charset=utf-8"
       }, [ { "name": "P1" }, { "name": "P2" } ]);
 
     projectsProvider.run(done, function(runComplete) {
